@@ -18,7 +18,7 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
     } else if (player.health > enemy.health) {
       document.querySelector('#displayText').innerHTML = 'Player 1 Wins'
     } else if (player.health < enemy.health) {
-      document.querySelector('#displayText').innerHTML = 'Palyer 2 Wins'
+      document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
     }
   }
 

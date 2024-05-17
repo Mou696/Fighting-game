@@ -5,6 +5,7 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             box-sizing: border-box;
@@ -37,7 +38,7 @@
             border-bottom: 4px solid white;
           "
         >
-            <div style="background-color: red; height: 30px; width: 100%"></div>
+            <div style="background-color: red; height: 30px; width: 100%"> <span id="Player1text" > Player 1</span></div>
             <div
                 id="playerHealth"
                 style="
@@ -78,7 +79,7 @@
                 border-right: 4px solid white;
               "
             >
-              <div style="background-color: red; height: 30px;"></div>
+              <div  style="background-color: red; height: 30px;"> <span id="Player2text" > Player 2</span></div>
               <div
                 id="enemyHealth"
                 style="
@@ -109,7 +110,7 @@
           >
             Tie
           </div>
-          <canvas></canvas>
+          <canvas id="canvas"></canvas>
     </div>
 
     <script
