@@ -15,8 +15,7 @@ canvas{
     color: white;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-   
+    transform: translate(-50%, -50%); 
 }
 
 #Player1text{
@@ -25,7 +24,31 @@ canvas{
     color: white;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-   
+    transform: translate(-50%, -50%)
 }
+
+#newGame{
+    position: absolute;
+    color: white;
+    align-items: center;
+    top: 500%;
+    left: 50%;
+    transform: translate(-50%);
+    display: none;
+
+}
+
+#displayText{
+    position: absolute;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    top: -200;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+
 

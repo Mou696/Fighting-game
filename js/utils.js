@@ -20,6 +20,8 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
     } else if (player.health < enemy.health) {
       document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
     }
+
+    document.querySelector('#newGame').style.display = 'flex';
   }
 
   let timer = 60
