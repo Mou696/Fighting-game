@@ -88,8 +88,8 @@ const player = new Fighter({
 
 const enemy = new Fighter({
   position: {
-    x: 400,
-    y: 100
+    x: 800,
+    y: 0
   },
   velocity: {
     x: 0,
@@ -164,9 +164,13 @@ const keys = {
   }
 }
 
-decreaseTimer()
+
+
+
+
 
 function animate() {
+  
   window.requestAnimationFrame(animate)
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
@@ -265,15 +269,17 @@ function animate() {
   if (enemy.health <= 0 || player.health <= 0) {
     determineWinner({ player, enemy, timerId })
 
+
   // new game
-
+   
     document.addEventListener('keydown', newGameKey);
-
 
   }
 }
 
-animate()
+
+
+
 
 window.addEventListener('keydown', (event) => {
   if (!player.dead) {
@@ -339,19 +345,34 @@ window.addEventListener('keyup', (event) => {
 
 
 
+
+
 // this is for the new game
+
 
 function newGameKey(event) {
   if (event.key === 'y' || event.key === 'Y') {
       document.removeEventListener('keydown', newGameKey);
-      startNewGame();
+      newGame();
   }
 }
 
-function startNewGame() {
-  console.log('Aloitetaan uusi peli');
- 
+function newGame(){
+  console.log('Uusi peli');
   
 }
+
+function startGame() {
+  const element = document.getElementById('startMenu');
+  element.style.display = 'none';
+  
+  animate();
+  decreaseTimer();
+  
+}
+
+
+
+
 
 
