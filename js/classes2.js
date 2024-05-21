@@ -20,6 +20,11 @@ class Sprite {
   }
 
   draw() {
+    c.save();
+    c.translate(this.position.x + this.width / 2, this.position.y + this.height / 2);
+    c.scale(this.facing, 1);
+    
+    c.translate(-(this.position.x + this.width / 2), -(this.position.y + this.height / 2));
     c.drawImage(
       this.image,
       this.framesCurrent * (this.image.width / this.framesMax),
@@ -31,6 +36,7 @@ class Sprite {
       (this.image.width / this.framesMax) * this.scale,
       this.image.height * this.scale
     )
+    c.restore();
   }
 
   animateFrames() {
@@ -117,6 +123,8 @@ class Fighter extends Sprite {
 
     this.position.x += this.velocity.x
     this.position.y += this.velocity.y
+
+
 
     // gravity function
     if (this.position.y + this.height + this.velocity.y >= canvas.height - 96) {
@@ -216,4 +224,6 @@ class Fighter extends Sprite {
     }
   }
 }
+
+
 

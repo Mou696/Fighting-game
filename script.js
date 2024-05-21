@@ -6,7 +6,10 @@ canvas.height = 576
 
 c.fillRect(0, 0, canvas.width, canvas.height)
 
+
 const gravity = 0.7
+
+let gameOver = false;
 
 const background = new Sprite({
   position: {
@@ -46,6 +49,7 @@ const player = new Fighter({
     x: 215,
     y: 210
   },
+  facing: 1,
   sprites: {
     idle: {
       imageSrc: './img/Evil Wizard 2/Idle.png',
@@ -167,11 +171,11 @@ const keys = {
 
 
 
-
-
 function animate() {
-  
+ 
   window.requestAnimationFrame(animate)
+  
+  
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   background.update()
@@ -181,6 +185,9 @@ function animate() {
   player.update()
   enemy.update()
 
+ 
+ 
+  
   player.velocity.x = 0
   enemy.velocity.x = 0
 
@@ -189,9 +196,11 @@ function animate() {
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5
     player.switchSprite('run')
+    player.facing = -1;
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5
     player.switchSprite('run')
+    player.facing = 1;
   } else {
     player.switchSprite('idle')
   }
@@ -207,9 +216,11 @@ function animate() {
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5
     enemy.switchSprite('run')
+    enemy.facing = 1;
   } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
     enemy.velocity.x = 5
     enemy.switchSprite('run')
+    enemy.facing = -1;
   } else {
     enemy.switchSprite('idle')
   }
@@ -221,6 +232,7 @@ function animate() {
     enemy.switchSprite('fall')
   }
 
+  
   // detect for collision & enemy gets hit
   if (
     rectangularCollision({
@@ -266,16 +278,18 @@ function animate() {
   }
 
   // end game based on health
-  if (enemy.health <= 0 || player.health <= 0) {
+  if (enemy.health <= 0 || player.health <= 0 || timer === 0) {
     determineWinner({ player, enemy, timerId })
-
-
-  // new game
-   
-    document.addEventListener('keydown', newGameKey);
-
+    
+  
   }
-}
+} 
+
+
+
+
+
+
 
 
 
@@ -350,26 +364,34 @@ window.addEventListener('keyup', (event) => {
 // this is for the new game
 
 
-function newGameKey(event) {
+
+function newGameKey(event){
   if (event.key === 'y' || event.key === 'Y') {
       document.removeEventListener('keydown', newGameKey);
+
       newGame();
   }
 }
 
 function newGame(){
+  
+  animate();
   console.log('Uusi peli');
   
 }
 
-function startGame() {
+function startGame(){
+  
+  
   const element = document.getElementById('startMenu');
   element.style.display = 'none';
   
   animate();
   decreaseTimer();
-  
+ 
 }
+
+
 
 
 
