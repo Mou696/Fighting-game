@@ -25,6 +25,7 @@ class Sprite {
     c.scale(this.facing, 1);
     
     c.translate(-(this.position.x + this.width / 2), -(this.position.y + this.height / 2));
+    
     c.drawImage(
       this.image,
       this.framesCurrent * (this.image.width / this.framesMax),

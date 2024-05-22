@@ -49,7 +49,7 @@ const player = new Fighter({
     x: 215,
     y: 210
   },
-  facing: 1,
+
   sprites: {
     idle: {
       imageSrc: './img/Evil Wizard 2/Idle.png',
@@ -173,7 +173,10 @@ const keys = {
 
 function animate() {
  
-  window.requestAnimationFrame(animate)
+ 
+    window.requestAnimationFrame(animate);
+
+  
   
   
   c.fillStyle = 'black'
@@ -185,13 +188,14 @@ function animate() {
   player.update()
   enemy.update()
 
- 
- 
+  
+
   
   player.velocity.x = 0
   enemy.velocity.x = 0
 
   // player movement
+
 
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5
@@ -240,7 +244,8 @@ function animate() {
       rectangle2: enemy
     }) &&
     player.isAttacking &&
-    player.framesCurrent === 4
+    player.framesCurrent === 4 &&
+    !gameOver
   ) {
     enemy.takeHit()
     player.isAttacking = false
@@ -262,7 +267,8 @@ function animate() {
       rectangle2: player
     }) &&
     enemy.isAttacking &&
-    enemy.framesCurrent === 2
+    enemy.framesCurrent === 2 &&
+    !gameOver
   ) {
     player.takeHit()
     enemy.isAttacking = false
@@ -277,12 +283,18 @@ function animate() {
     enemy.isAttacking = false
   }
 
+  
+
   // end game based on health
   if (enemy.health <= 0 || player.health <= 0 || timer === 0) {
     determineWinner({ player, enemy, timerId })
-    
+  
+    gameOver = true;
   
   }
+
+ 
+  
 } 
 
 
@@ -365,31 +377,32 @@ window.addEventListener('keyup', (event) => {
 
 
 
-function newGameKey(event){
+function newGameKey(event) {
   if (event.key === 'y' || event.key === 'Y') {
-      document.removeEventListener('keydown', newGameKey);
-
-      newGame();
+    document.removeEventListener('keydown', newGameKey);
+    gameOver = false;
+    newGame();
+   
   }
 }
 
-function newGame(){
+function newGame() {
   
   animate();
   console.log('Uusi peli');
-  
 }
 
-function startGame(){
-  
-  
+
+function startGame() {
   const element = document.getElementById('startMenu');
   element.style.display = 'none';
-  
   animate();
   decreaseTimer();
- 
 }
+
+
+
+
 
 
 
