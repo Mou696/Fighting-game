@@ -51,6 +51,8 @@ class Sprite {
   }
 }
 
+  
+
 class Fighter extends Sprite {
   constructor({
     position,
