@@ -39,7 +39,7 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/wizard/idle.png',
+  imageSrc: '/Fighting-game/img/wizard/idle.png',
   framesMax: 8,
   scale: 2.5,
   offset: {
@@ -48,31 +48,31 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './img/wizard/idle.png',
+      imageSrc: '/Fighting-game/img/wizard/idle.png',
       framesMax: 8
     },
     run: {
-      imageSrc: './img/wizard/run.png',
+      imageSrc: '/Fighting-game/img/wizard/run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './img/wizard/jump.png',
+      imageSrc: '/Fighting-game/img/wizard/jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './img/wizard/fall.png',
+      imageSrc: '/Fighting-game/img/wizard/fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './img/wizard/attack1.png',
+      imageSrc: '/Fighting-game/img/wizard/attack1.png',
       framesMax: 8
     },
     takeHit: {
-      imageSrc: './img/wizard/takehit.png',
+      imageSrc: '/Fighting-game/img/wizard/takehit.png',
       framesMax: 3
     },
     death: {
-      imageSrc: './img/wizard/death.png',
+      imageSrc: '/Fighting-game/img/wizard/death.png',
       framesMax: 7
     }
   },
@@ -84,7 +84,7 @@ const player = new Fighter({
     width: 160,
     height: 50
   }
-});
+})
 
 const enemy = new Fighter({
   position: {
@@ -100,7 +100,7 @@ const enemy = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './img/kenji/idle.png',
+  imageSrc: '/Fighting-game/img/kenji/idle.png',
   framesMax: 6,
   scale: 1.6,
   offset: {
@@ -109,31 +109,31 @@ const enemy = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './img/kenji/idle.png',
+      imageSrc: '/Fighting-game/img/kenji/idle.png',
       framesMax: 6
     },
     run: {
-      imageSrc: './img/kenji/run.png',
+      imageSrc: '/Fighting-game/img/kenji/run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './img/kenji/jump.png',
+      imageSrc: '/Fighting-game/img/kenji/jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './img/kenji/fall.png',
+      imageSrc: '/Fighting-game/img/kenji/fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './img/kenji/attack1.png',
+      imageSrc: '/Fighting-game/img/kenji/attack1.png',
       framesMax: 8
     },
     takeHit: {
-      imageSrc: './img/kenji/takehit.png',
+      imageSrc: '/Fighting-game/img/kenji/takehit.png',
       framesMax: 4
     },
     death: {
-      imageSrc: './img/kenji/death.png',
+      imageSrc: '/Fighting-game/img/kenji/death.png',
       framesMax: 7
     }
   },
@@ -145,7 +145,7 @@ const enemy = new Fighter({
     width: 170,
     height: 50
   }
-});
+})
 
 
 console.log(player)
