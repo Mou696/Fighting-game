@@ -36,30 +36,3 @@ function decreaseTimer() {
     determineWinner({ player, enemy, timerId });
   }
 }
-
-// New game
-function resetGame() {
-  // Reset player properties
-  player.position = { x: 50, y: 50 }; // Set initial player position within canvas boundaries
-  player.velocity = { x: 0, y: 0 };
-  player.health = 100;
-  player.dead = false;
-  player.switchSprite('idle');
-
-  // Reset enemy properties
-  enemy.position = { x: 400, y: 100 }; // Set initial enemy position within canvas boundaries
-  enemy.velocity = { x: 0, y: 0 };
-  enemy.health = 100;
-  enemy.dead = false;
-  enemy.switchSprite('idle');
-
-  // Reset timer and UI elements
-  timer = 60;
-  document.querySelector('#timer').innerHTML = timer;
-  document.querySelector('#playerHealth').style.width = player.health + '%';
-  document.querySelector('#enemyHealth').style.width = enemy.health + '%';
-  document.querySelector('#displayText').style.display = 'none';
-
-  // Restart timer
-  decreaseTimer();
-}

@@ -58,7 +58,7 @@ class Fighter extends Sprite {
     framesHold = 5
   }) {
     super({ position, imageSrc, scale, framesMax, offset, framesHold });
-    this.isJumping = false; // Add this line
+    this.isJumping = false; 
     this.framesHold = framesHold;
 
     this.velocity = velocity;
@@ -125,11 +125,11 @@ class Fighter extends Sprite {
   }
 
   takeHit() {
-    this.health -= 6;
+    this.health -= 2;
     if (this.health <= 0) {
       this.switchSprite('death');
     } else {
-      this.switchSprite('takeHit');
+      this.switchSprite('takehit');
     }
   }
 
@@ -188,7 +188,7 @@ class Fighter extends Sprite {
           this.framesCurrent = 0;
         }
         break;
-      case 'takeHit':
+      case 'takehit':
         if (this.image !== this.sprites.takeHit.image) {
           this.image = this.sprites.takeHit.image;
           this.framesMax = this.sprites.takeHit.framesMax;
