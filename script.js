@@ -39,7 +39,7 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/Evil Wizard 2/Idle.png',
+  imageSrc: './img/evil_wizard_2/idle.png',
   framesMax: 8,
   scale: 2.5,
   offset: {
